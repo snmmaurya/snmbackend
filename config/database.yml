@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['SNMBACKEND_DB_NAME'] %>
+  host:     <%= ENV['SNMBACKEND_DB_HOST'] %>
+  port:     <%= ENV['SNMBACKEND_DB_PORT'] %>
+  pool:     5
+  username: <%= ENV['SNMBACKEND_DB_USERNAME'] %>
+  password: <%= ENV['SNMBACKEND_DB_PASSWORD'] %>
+
+production:
+  <<: *default
+  database: <%= ENV['PRODUCTION_SNMBACKEND_DB_NAME'] %>
+  password: <%= ENV['PRODUCTION_SNMBACKEND_DB_PASSWORD'] %>
+  pool: 15
+
+development:
+  <<: *default
+  database: <%= ENV['DEVELOPMENT_SNMBACKEND_DB_NAME'] %>
+
+test:
+  <<: *default
+  database: <%= ENV['TEST_SNMBACKEND_DB_NAME'] %>
