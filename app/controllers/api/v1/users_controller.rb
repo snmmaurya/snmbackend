@@ -6,7 +6,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   private
 
-  def registration_params
-    params.require(:user).permit(:first_name, :last_name, :email, :mobile_number, :password, :password_confirmation, :address)
-  end
+    def registration_params
+      params.require(:user).permit(:first_name, :last_name, :email, :mobile_number, :password, :password_confirmation, :address)
+    end
 end
